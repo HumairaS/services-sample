@@ -1,0 +1,16 @@
+<p>Today: {{dateToday}}</p>
+
+<ul *ngFor="let p of pages">
+    <li (click)="pageClick(p)" [class.active]="p===pageType">{{p.categoryName}}</li>
+</ul>
+
+<div *ngIf="pageType">
+    <h3> Details: </h3>
+    <p> Category: <input type="text" [(ngModel)]="pageType"></p>
+    <p> Descripion: {{ pageDescription }}</p>
+</div>
+
+<button routerLink="/userTemplates">Navigate to User Template</button>
+
+<p>Before clicking below button, make sure there is one!</p>
+<input type="button" (click)="deleteState()" value="Delete State File">
